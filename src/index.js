@@ -1,8 +1,7 @@
-import {React, ReactDOM} from "./CONST";
-import App from "./App";
-import "./index.css";
-import CloneElementPage from "./pages/CloneElementPage";
+import { React, ReactDOM } from "./CONST"
+import "./index.css"
+import App from "./pages/FirstRender"
 
-ReactDOM.render(<CloneElementPage />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"))
 
-console.log("version", React.version); //sy-log
+console.log("version", React.version) //sy-log

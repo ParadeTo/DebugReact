@@ -3,6 +3,6 @@ import {useEffect, useReducer} from 'react'
 // import App from './App'
 import './index.css'
 // import App from './pages/FirstRender'
-import App from './pages/Hooks'
+import App from './pages/Update/questions/2'
 console.log(App)
 ReactDOM.render(<App />, document.getElementById('root'))

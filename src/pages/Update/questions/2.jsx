@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { useCallback, useState, useEffect } from 'react'
 
-// 点击后，child render! 会打印吗
-// 1
+
 function Child() {
   console.log('child render!');
   return <div>Child</div>;

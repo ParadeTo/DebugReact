@@ -1,1 +1,1 @@
-export {default} from './questions/3'
+export {default} from './Demo1'

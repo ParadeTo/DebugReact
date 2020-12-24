@@ -19,8 +19,8 @@ function Parent(props) {
   );
 }
 
-// 2
-/*export default function App() {
+
+export default function App() {
   return (
     <Parent>
       <Son/>
@@ -28,7 +28,8 @@ function Parent(props) {
   );
 }
 
-function Parent(props) {
+// 2
+/*function Parent(props) {
   const [count, setCount] = React.useState(0);
 
   return (

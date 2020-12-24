@@ -22,6 +22,7 @@ function useDebounce(fn, time) {
 export default function() {
   const [counter, setCounter] = useState(0)
   const [counter2, setCounter2] = useState(0)
+
   const handleClick = useDebounce(function() {
     setCounter(counter + 1)
   }, 1000)
@@ -40,5 +41,4 @@ export default function() {
     <div>{counter}</div>
     <div>{counter2}</div>
   </div>
-
 }

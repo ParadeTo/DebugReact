@@ -1272,6 +1272,7 @@ function handleError(root, thrownValue): void {
   do {
     let erroredWork = workInProgress;
     try {
+      debugger;
       // Reset module-level state that was set during the render phase.
       resetContextDependencies();
       resetHooksAfterThrow();

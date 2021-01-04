@@ -176,6 +176,7 @@ function throwException(
   value: mixed,
   rootRenderLanes: Lanes,
 ) {
+  debugger;
   // The source fiber did not complete.
   sourceFiber.effectTag |= Incomplete;
   // Its effect list is no longer valid.

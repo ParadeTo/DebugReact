@@ -199,7 +199,7 @@ function findAllInRenderedTree(inst, test) {
  */
 function scryRenderedDOMComponentsWithClass(root, classNames) {
   validateClassInstance(root, 'scryRenderedDOMComponentsWithClass');
-  return findAllInRenderedTree(root, function(inst) {
+  return findAllInRenderedTree(root, function (inst) {
     if (isDOMComponent(inst)) {
       let className = inst.className;
       if (typeof className !== 'string') {
@@ -216,7 +216,7 @@ function scryRenderedDOMComponentsWithClass(root, classNames) {
         );
         classNames = classNames.split(/\s+/);
       }
-      return classNames.every(function(name) {
+      return classNames.every(function (name) {
         return classList.indexOf(name) !== -1;
       });
     }
@@ -252,7 +252,7 @@ function findRenderedDOMComponentWithClass(root, className) {
  */
 function scryRenderedDOMComponentsWithTag(root, tagName) {
   validateClassInstance(root, 'scryRenderedDOMComponentsWithTag');
-  return findAllInRenderedTree(root, function(inst) {
+  return findAllInRenderedTree(root, function (inst) {
     return (
       isDOMComponent(inst) &&
       inst.tagName.toUpperCase() === tagName.toUpperCase()
@@ -287,7 +287,7 @@ function findRenderedDOMComponentWithTag(root, tagName) {
  */
 function scryRenderedComponentsWithType(root, componentType) {
   validateClassInstance(root, 'scryRenderedComponentsWithType');
-  return findAllInRenderedTree(root, function(inst) {
+  return findAllInRenderedTree(root, function (inst) {
     return isCompositeComponentWithType(inst, componentType);
   });
 }
@@ -340,7 +340,7 @@ function mockComponent(module, mockTagName) {
 
   mockTagName = mockTagName || module.mockTagName || 'div';
 
-  module.prototype.render.mockImplementation(function() {
+  module.prototype.render.mockImplementation(function () {
     return React.createElement(mockTagName, null, this.props.children);
   });
 
@@ -403,7 +403,7 @@ let eventQueue: ?(Array<ReactSyntheticEvent> | ReactSyntheticEvent) = null;
  * @param {?object} event Synthetic event to be dispatched.
  * @private
  */
-const executeDispatchesAndRelease = function(event: ReactSyntheticEvent) {
+const executeDispatchesAndRelease = function (event: ReactSyntheticEvent) {
   if (event) {
     executeDispatchesInOrder(event);
 
@@ -413,7 +413,7 @@ const executeDispatchesAndRelease = function(event: ReactSyntheticEvent) {
   }
 };
 
-const executeDispatchesAndReleaseTopLevel = function(e) {
+const executeDispatchesAndReleaseTopLevel = function (e) {
   return executeDispatchesAndRelease(e);
 };
 
@@ -432,7 +432,7 @@ function runEventsInBatch(
   if (!processingEventQueue) {
     return;
   }
-
+  debugger;
   forEachAccumulated(processingEventQueue, executeDispatchesAndReleaseTopLevel);
   invariant(
     !eventQueue,
@@ -604,7 +604,7 @@ let SimulateNative;
  * - ... (All keys from event plugin `eventTypes` objects)
  */
 function makeSimulator(eventType) {
-  return function(domNode, eventData) {
+  return function (domNode, eventData) {
     invariant(
       !React.isValidElement(domNode),
       'TestUtils.Simulate expected a DOM node as the first argument but received ' +
@@ -644,7 +644,7 @@ function makeSimulator(eventType) {
       accumulateDirectDispatches(event);
     }
 
-    ReactDOM.unstable_batchedUpdates(function() {
+    ReactDOM.unstable_batchedUpdates(function () {
       // Normally extractEvent enqueues a state restore, but we'll just always
       // do that since we're by-passing it here.
       enqueueStateRestore(domNode);
@@ -677,7 +677,7 @@ if (!enableModernEventSystem) {
    * @param {!Element} node The dom to simulate an event occurring on.
    * @param {?Event} fakeNativeEvent Fake native event to use in SyntheticEvent.
    */
-  const simulateNativeEventOnNode = function(
+  const simulateNativeEventOnNode = function (
     topLevelType,
     node,
     fakeNativeEvent,
@@ -694,7 +694,7 @@ if (!enableModernEventSystem) {
    * @param {!ReactDOMComponent} comp
    * @param {?Event} fakeNativeEvent Fake native event to use in SyntheticEvent.
    */
-  const simulateNativeEventOnDOMComponent = function(
+  const simulateNativeEventOnDOMComponent = function (
     topLevelType,
     comp,
     fakeNativeEvent,
@@ -718,8 +718,8 @@ if (!enableModernEventSystem) {
    * to dispatch synthetic events.
    */
 
-  const makeNativeSimulator = function(eventType, topLevelType) {
-    return function(domComponentOrNode, nativeEventData) {
+  const makeNativeSimulator = function (eventType, topLevelType) {
+    return function (domComponentOrNode, nativeEventData) {
       if (__DEV__) {
         if (!didWarnSimulateNativeDeprecated) {
           didWarnSimulateNativeDeprecated = true;

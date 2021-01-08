@@ -1,6 +1,4 @@
 import * as Scheduler from '../../react/packages/scheduler'
-import {animate} from '../../utils'
-
 
 function createLinkedList(n) {
   let p = {
@@ -57,5 +55,4 @@ function run(didTimeout) {
 const NormalPriority = 3;
 
 
-animate()
 Scheduler.unstable_scheduleCallback(NormalPriority, run)

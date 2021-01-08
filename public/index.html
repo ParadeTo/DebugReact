@@ -25,8 +25,26 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Debug React</title>
+    <style>
+      @keyframes move {
+        from {
+          margin-left: 0;
+        }
+        to {
+          margin-left: 200px;
+        }
+      }
+      #square {
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+        background-color: red;
+        animation: move 2s ease 0s infinite alternate;
+      }
+    </style>
   </head>
   <body>
+    <!-- <div id="square"></div> -->
     <div id="root"></div>
   </body>
 </html>

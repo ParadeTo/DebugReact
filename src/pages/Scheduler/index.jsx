@@ -1,1 +1,3 @@
-import './demo3'
+// import './demo7'
+
+export {default} from './demo7'

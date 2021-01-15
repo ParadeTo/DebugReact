@@ -1,6 +1,6 @@
 import {React, ReactDOM} from './CONST'
 import './index.css'
-import App from './pages/Scheduler'
+import App from './pages/Concurrent'
 
 // import {animate} from './utils'
 // animate()

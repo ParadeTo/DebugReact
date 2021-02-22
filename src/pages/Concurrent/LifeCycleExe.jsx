@@ -1,10 +1,17 @@
 import * as React from 'react'
 import {useRef, useState, useEffect} from 'react'
 
-const Item = ({i, children}) => {
-  for (let i = 0; i< 9999999;i++){}
-  return <span key={i}>{children}</span>
+class Item extends React.Component {
+  UNSAFE_componentWillUpdate(nextProps){
+    console.log(`item ${nextProps.i} will update`)
+  }
+
+  render() {
+    for (let i = 0; i< 9999999;i++){}
+    return <span key={this.props.i}>{this.props.children}</span>
+  }
 }
+
 
 const App = () => {
   const buttonRef = useRef(null);
@@ -26,7 +33,7 @@ const App = () => {
         增加2
       </button>
       <div style={{wordWrap: 'break-word'}}>
-        {Array.from(new Array(1000)).map((v, index) => (
+        {Array.from(new Array(20)).map((v, index) => (
           <Item i={index}>{count}</Item>
         ))}
       </div>

@@ -7,6 +7,7 @@ const Item = ({i, children}) => {
 }
 
 const App = () => {
+  console.log('---------------------------render-------------------')
   const buttonRef = useRef(null);
   const [count, updateCount] = useState(0);
 
@@ -26,7 +27,7 @@ const App = () => {
         增加2
       </button>
       <div style={{wordWrap: 'break-word'}}>
-        {Array.from(new Array(1000)).map((v, index) => (
+        {Array.from(new Array(10)).map((v, index) => (
           <Item i={index}>{count}</Item>
         ))}
       </div>
